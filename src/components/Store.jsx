@@ -5,6 +5,7 @@ const Store = () => {
   return (
     <>
       <div className="">
+        
         <StoreItems/>
       </div>
     </>

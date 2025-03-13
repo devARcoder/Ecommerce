@@ -1,8 +1,11 @@
 import React from "react";
 import manBanner from "./assets/manBanner.jpg";
+import Brands from "./Brands";
+import LatestProducts from "./LatestProducts";
 
 const Hero = () => {
   return (
+    <>
     <div 
       className="relative bg-no-repeat bg-cover bg-right md:bg-cover md:bg-center text-white md:h-screen py-8 md:px-8 flex items-center justify-center md:justify-start md:items-center"
       style={{ backgroundImage: `url(${manBanner})`}}
@@ -20,6 +23,9 @@ const Hero = () => {
         </div>
       </div>
     </div>
+    <Brands/>
+    <LatestProducts/>
+    </>
   );
 };
 
