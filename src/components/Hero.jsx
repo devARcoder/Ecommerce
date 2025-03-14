@@ -25,6 +25,7 @@ const Hero = () => {
     </div>
     <Brands/>
     <Store/>
+
     </>
   );
 };

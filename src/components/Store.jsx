@@ -6,7 +6,9 @@ const Store = () => {
 
   useEffect(() => {
     const storeProducts = async () => {
+      
       try {
+        
         const url = 'https://api.escuelajs.co/api/v1/products/?categorySlug=shoes';
         const response = await fetch(url);
         const data = await response.json();
