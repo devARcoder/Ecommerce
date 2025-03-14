@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import AllProducts from './components/AllProducts';
 // import LatestProducts from './components/LatestProducts';
 
 const App = () => {
@@ -14,6 +15,8 @@ const App = () => {
         
         <Routes>
           <Route exact path="/" element={<Hero />} />
+          <Route exact path="/everything" element={<AllProducts />} />
+          
           
         </Routes>
       </BrowserRouter>

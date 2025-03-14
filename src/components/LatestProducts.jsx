@@ -15,7 +15,7 @@ const LatestProducts = () => {
       
       {/* Content */}
       <div className="relative flex flex-col space-y-3 justify-center items-start text-start px-6 pt-16 md:pt-36 md:py-6">
-        <h1 className='text-2xl font-bold'>20% Off On Tank Tops</h1>
+        <h1 className='text-2xl font-bold font-mono'>20% Off On Tank Tops</h1>
         <p className='text-lg font-semibold'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum</p>
         <button className="bg-white text-sm text-black py-3 font-bold px-5 sm:py-3 md:py-3 md:px-4 hover:bg-black hover:text-white w-full md:w-auto">SHOP NOW</button>
       </div>
@@ -30,8 +30,8 @@ const LatestProducts = () => {
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       
       {/* Content */}
-      <div className="relative flex flex-col space-y-3 justify-center items-start text-start px-6 pt-16 md:pt-36 md:py-6">
-        <h1 className='text-2xl font-bold'>20% Off On Tank Tops</h1>
+      <div className="relative flex flex-col space-y-3 justify-center items-start text-start px-6 pt-16 md:pt-36 md:py-6 ">
+        <h1 className='text-2xl font-bold font-mono'>Latest Eyewear For You</h1>
         <p className='text-lg font-semibold'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum</p>
         <button className="bg-white text-sm text-black py-3 font-bold px-5 sm:py-3 md:py-3 md:px-4 hover:bg-black hover:text-white w-full md:w-auto">SHOP NOW</button>
       </div>
@@ -48,7 +48,7 @@ const LatestProducts = () => {
       
       {/* Content */}
       <div className="relative flex flex-col space-y-3 justify-center items-start text-start px-6 pt-16 md:pt-36 md:py-6">
-        <h1 className='text-2xl font-bold'>20% Off On Tank Tops</h1>
+        <h1 className='text-2xl font-bold font-mono'>Let's Lorem Suit Up!</h1>
         <p className='text-lg font-semibold'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum</p>
         <button className="bg-white text-sm text-black py-3 font-bold px-5 sm:py-3 md:py-3 md:px-4 hover:bg-black hover:text-white w-full md:w-auto">CHECK OUT</button>
       </div>

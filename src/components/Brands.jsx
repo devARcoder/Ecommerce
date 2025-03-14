@@ -7,6 +7,8 @@ import img4 from "./assets/brands/prada.png";
 import img5 from "./assets/brands/puma.png";
 import img6 from "./assets/brands/vl.png";
 
+import LatestProducts from "./LatestProducts";
+
 const brandData = [
   { src: img1, name: "Armani" },
   { src: img2, name: "Gucci" },
@@ -41,6 +43,7 @@ const Brands = () => {
   }, [itemsToShow]);
 
   return (
+    <>
     <div className="relative w-full max-w-5xl mx-auto overflow-hidden">
       <div
         className="flex transition-transform duration-700 ease-in-out"
@@ -58,6 +61,8 @@ const Brands = () => {
         ))}
       </div>
     </div>
+    <LatestProducts/>
+    </>
   );
 };
 
