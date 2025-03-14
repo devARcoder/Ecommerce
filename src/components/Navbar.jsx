@@ -21,7 +21,8 @@ const Navbar = () => {
           <Link to="/everything">EVERYTHING</Link>
           <Link to="/women">WOMEN</Link>
           <Link to="/men">MEN</Link>
-          <Link to="/accessories">ACCESSORIES</Link>
+          <Link to="/jewelery">JEWELERIES</Link>
+          <Link to="/electronics">ELECTRONICS</Link>
         </nav>
 
         {/* Right Section */}
@@ -89,7 +90,8 @@ const Navbar = () => {
             <Link to="/everything" onClick={closeSidebar}>EVERYTHING</Link>
             <Link to="/women" onClick={closeSidebar}>WOMEN</Link>
             <Link to="/men" onClick={closeSidebar}>MEN</Link>
-            <Link to="/accessories" onClick={closeSidebar}>ACCESSORIES</Link>
+            <Link to="/jewelery" onClick={closeSidebar}>JEWELERIES</Link>
+            <Link to="/electronics" onClick={closeSidebar}>ELECTRONICS</Link>
             <hr/>
             <Link to="/about" onClick={closeSidebar}>ABOUT</Link>
             <Link to="/contact" onClick={closeSidebar}>CONTACT</Link>

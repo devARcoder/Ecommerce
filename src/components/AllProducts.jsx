@@ -1,60 +1,58 @@
 import React, { useState, useEffect, useRef } from "react";
-import StoreItems from "./StoreItems";
 import LoadingAnimatPulse from "../components/LoadingAnimatPulse";
 import { Link } from "react-router-dom";
+import AllProductsItems from "./AllProductsItems";
 
 const AllProducts = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
+  const [sortedProducts, setSortedProducts] = useState([]);
   const [updatedAt, setUpdatedAt] = useState("");
   const [sortOrder, setSortOrder] = useState("default");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   // Pagination States
-  const itemsPerPage = 10; // Adjust as needed
+  const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const totalPages = Math.ceil(sortedProducts.length / itemsPerPage);
 
   useEffect(() => {
-    const storeProducts = async () => {
+    const fetchProducts = async () => {
       try {
-        const url = "https://api.escuelajs.co/api/v1/products";
         setLoading(true);
-
-        const response = await fetch(url);
+        const response = await fetch("https://api.escuelajs.co/api/v1/products");
         const data = await response.json();
 
         setProducts(data);
+        setSortedProducts(data); // Initial sorting state
 
         if (data.length > 0 && data[0].updatedAt) {
-          const updatedDate = new Date(data[0].updatedAt);
-          setUpdatedAt(updatedDate.toLocaleString());
+          setUpdatedAt(new Date(data[0].updatedAt).toLocaleString());
         }
-
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
         setLoading(false);
       }
     };
 
-    storeProducts();
+    fetchProducts();
   }, []);
 
   // Sorting function
   const sortProducts = (order) => {
-    let sortedProducts = [...products];
+    let sorted = [...products];
 
     if (order === "lowToHigh") {
-      sortedProducts.sort((a, b) => a.price - b.price);
+      sorted.sort((a, b) => a.price - b.price);
     } else if (order === "highToLow") {
-      sortedProducts.sort((a, b) => b.price - a.price);
+      sorted.sort((a, b) => b.price - a.price);
     }
 
-    setProducts(sortedProducts);
+    setSortedProducts(sorted);
     setSortOrder(order);
-    setIsDropdownOpen(false); // Close dropdown after selection
+    setIsDropdownOpen(false);
   };
 
   // Pagination Functions
@@ -67,16 +65,13 @@ const AllProducts = () => {
   // Get products for the current page
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
+  const currentProducts = sortedProducts.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <>
-      <ol className="flex items-center whitespace-nowrap my-6 mx-4">
+      <ol className="flex items-center whitespace-nowrap my-6 mx-8">
         <li className="inline-flex items-center">
-          <Link
-            className="flex items-center text-sm text-gray-500 hover:text-blue-600"
-            to="/"
-          >
+          <Link className="flex items-center text-sm text-gray-500 hover:text-blue-600" to="/">
             Home
           </Link>
           <svg
@@ -95,24 +90,22 @@ const AllProducts = () => {
           </svg>
         </li>
         <li className="inline-flex items-center">
-          <p className="flex items-center text-sm font-semibold text-gray-800 truncate cursor-pointer">
-            Store
-          </p>
+          <p className="text-sm font-semibold text-gray-800 truncate cursor-pointer">Store</p>
         </li>
       </ol>
-
-      {/* Updated At Display */}
+      <div className="flex flex-col justify-center items-center">
+        <h1 className="text-2xl md:text-5xl">Everything</h1>
       {updatedAt && (
         <div className="mx-4 my-4 text-gray-600 text-sm">
           <p>
-            Products last updated on:{" "}
-            <span className="font-semibold">{updatedAt}</span>
+            Products last updated on: <span className="font-semibold">{updatedAt}</span>
           </p>
         </div>
       )}
+      </div>
 
       {/* Sorting Dropdown */}
-      <div className="relative inline-flex mx-4" ref={dropdownRef}>
+      <div className="relative inline-flex mx-8" ref={dropdownRef}>
         <button
           type="button"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -124,41 +117,27 @@ const AllProducts = () => {
             ? "Sort: Price High to Low"
             : "Sort by Price"}
           <svg
-            className={`w-2.5 h-2.5 text-white transition-transform ${
-              isDropdownOpen ? "rotate-180" : ""
-            }`}
+            className={`w-2.5 h-2.5 text-black transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
             width="16"
             height="16"
             viewBox="0 0 16 16"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"
-              stroke="black"
-              strokeWidth="2"
-              strokeLinecap="round"
-            ></path>
+            <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5" stroke="black" strokeWidth="2" strokeLinecap="round"></path>
           </svg>
         </button>
 
-        {/* Dropdown Menu */}
         {isDropdownOpen && (
           <div className="absolute top-full w-72 mt-2 bg-white shadow-lg rounded-xl">
             <ul className="py-2">
               <li>
-                <button
-                  className="block w-full text-left px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium"
-                  onClick={() => sortProducts("lowToHigh")}
-                >
+                <button className="block w-full text-left px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" onClick={() => sortProducts("lowToHigh")}>
                   Sort by price: Low to High
                 </button>
               </li>
               <li>
-                <button
-                  className="block w-full text-left px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium"
-                  onClick={() => sortProducts("highToLow")}
-                >
+                <button className="block w-full text-left px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" onClick={() => sortProducts("highToLow")}>
                   Sort by price: High to Low
                 </button>
               </li>
@@ -175,20 +154,14 @@ const AllProducts = () => {
                 <LoadingAnimatPulse />
               </div>
             ))
-          : currentProducts.map((element) => (
-              <div key={element.id} className="w-full">
-                <StoreItems
-                  image={element.images?.[0] || "default-image-url.jpg"}
-                  title={
-                    element.title ? element.title.slice(0, 12) : "No Title"
-                  }
-                  desc={
-                    element.description
-                      ? element.description.slice(0, 60)
-                      : "No Description"
-                  }
-                  price={element.price}
-                  category={element.category}
+          : currentProducts.map((item) => (
+              <div key={item.id} className="w-full">
+                <AllProductsItems
+                  image={item.images?.[0] || "default-image-url.jpg"}
+                  title={item.title ? item.title.slice(0, 12) : "No Title"}
+                  desc={item.description ? item.description.slice(0, 60) : "No Description"}
+                  price={item.price}
+                  category={item.category}
                 />
               </div>
             ))}
@@ -198,11 +171,7 @@ const AllProducts = () => {
       <nav className="flex justify-center my-8">
         <ul className="flex flex-wrap justify-center gap-2 sm:gap-4">
           <li>
-            <button
-              onClick={() => goToPage(currentPage - 1)}
-              disabled={currentPage === 1}
-              className="hidden md:text-sm sm:px-4 sm:py-2 border rounded-lg disabled:opacity-50"
-            >
+            <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1} className="text-sm sm:px-4 sm:py-2 border rounded-lg disabled:opacity-50">
               Previous
             </button>
           </li>
@@ -210,14 +179,7 @@ const AllProducts = () => {
           <div className="flex overflow-x-auto space-x-2">
             {Array.from({ length: totalPages }, (_, i) => (
               <li key={i}>
-                <button
-                  onClick={() => goToPage(i + 1)}
-                  className={`px-3 py-1 text-sm sm:px-4 sm:py-2 border rounded-lg ${
-                    currentPage === i + 1
-                      ? "bg-blue-500 text-white"
-                      : "hover:bg-gray-200"
-                  }`}
-                >
+                <button onClick={() => goToPage(i + 1)} className={`px-3 py-1 text-sm sm:px-4 sm:py-2 border rounded-lg ${currentPage === i + 1 ? "bg-blue-500 text-white" : "hover:bg-gray-200"}`}>
                   {i + 1}
                 </button>
               </li>
@@ -225,11 +187,7 @@ const AllProducts = () => {
           </div>
 
           <li>
-            <button
-              onClick={() => goToPage(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className="hidden md:text-sm sm:px-4 sm:py-2 border rounded-lg disabled:opacity-50"
-            >
+            <button onClick={() => goToPage(currentPage + 1)} disabled={currentPage === totalPages} className="text-sm sm:px-4 sm:py-2 border rounded-lg disabled:opacity-50">
               Next
             </button>
           </li>
@@ -240,3 +198,4 @@ const AllProducts = () => {
 };
 
 export default AllProducts;
+
