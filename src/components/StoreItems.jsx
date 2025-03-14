@@ -31,7 +31,7 @@ const StoreItems = ({ image, title, desc, price}) => {
             <span className="text-2xl text-yellow-500">&#9733;</span>
             <span className="text-2xl text-yellow-500">&#9733;</span>
             <span className="text-2xl text-yellow-500">&#9733;</span>
-            <i class="fa fa-star-half-full text-yellow-500 text-lg mt-1.5"></i>
+            <i className="fa fa-star-half-full text-yellow-500 text-lg mt-1.5"></i>
           </div>
         </div>
       <button className="my-1 bg-none border border-black px-2 py-1 w-full hover:bg-green-500 hover:text-white hover:border hover:border-green-500 hover:rounded-md">Order Now</button>
