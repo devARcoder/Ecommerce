@@ -170,27 +170,17 @@ const AllProducts = () => {
       {/* Pagination */}
       <nav className="flex justify-center my-8">
         <ul className="flex flex-wrap justify-center gap-2 sm:gap-4">
-          <li>
-            <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1} className="text-sm sm:px-4 sm:py-2 border rounded-lg disabled:opacity-50">
-              Previous
-            </button>
-          </li>
+          
 
           <div className="flex overflow-x-auto space-x-2">
             {Array.from({ length: totalPages }, (_, i) => (
               <li key={i}>
-                <button onClick={() => goToPage(i + 1)} className={`px-3 py-1 text-sm sm:px-4 sm:py-2 border rounded-lg ${currentPage === i + 1 ? "bg-blue-500 text-white" : "hover:bg-gray-200"}`}>
+                <button onClick={() => goToPage(i + 1)} className={`px-3 py-1 text-sm sm:px-4 sm:py-2 border rounded-lg ${currentPage === i + 1 ? "bg-green-500 text-white" : "hover:bg-gray-200"}`}>
                   {i + 1}
                 </button>
               </li>
             ))}
           </div>
-
-          <li>
-            <button onClick={() => goToPage(currentPage + 1)} disabled={currentPage === totalPages} className="text-sm sm:px-4 sm:py-2 border rounded-lg disabled:opacity-50">
-              Next
-            </button>
-          </li>
         </ul>
       </nav>
     </>
@@ -198,4 +188,3 @@ const AllProducts = () => {
 };
 
 export default AllProducts;
-

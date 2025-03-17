@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import StoreItems from './StoreItems';
 import { Link } from 'react-router-dom';
-
+import seller1 from './assets/bestSeller.jpg'
+import seller2 from './assets/seller2.jpg'
+import seller3 from './assets/seller3.jpg'
+import seller4 from './assets/seller4.jpg'
+import seller5 from './assets/seller5.jpg'
 const JeweleryProducts = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
@@ -28,6 +32,97 @@ const JeweleryProducts = () => {
       }, []);
   return (
     <>
+    <div className="bg-gray-100 py-0 px-0 flex flex-col justify-between md:py-24 md:px-10 md:flex md:flex-row md:justify-between">
+          <div className="flex flex-col px-4 md:px-1 space-y-4 order-last py-6 md:py-0 md:order-first">
+            <input className=' px-2 py-2 md:py-1 border border-gray-300' type="text" placeholder='Search products...'/>
+            <div className="category flex flex-col">
+              <h1 className='text-2xl text-gray-800'>Categories</h1>
+              <Link className='text-md px-2 py-1' to="/jewelery">Jewelries <span className='text-md'>(7)</span> </Link>
+              <Link className='text-md px-2 py-1' to="/men">Men <span className='text-md'>(12)</span></Link>
+              <Link className='text-md px-2' to="/women">Women <span className='text-md'>(6)</span></Link>
+            </div>
+            <div className="flex flex-col space-y-2 ">
+              <h1 className='text-2xl text-gray-800'>Our Best Sellers</h1>
+              <di className="flex flex-col px-2 py-1 md:space-y-6">
+                <div className="1 flex items-center space-x-2 py-1">
+                  <img className='w-20 h-16' src={seller1} alt="seller1" />
+                  <div className="flex flex-col items-start">
+                    <h3 className='font-bold text-sm'>Blue Denim Shorts</h3>
+                    <div className="flex">
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    
+                    </div>
+                    <p className='text-sm font-semibold'><span className='line-through text-gray-500'>$150.00</span> $130.00</p>
+                  </div>
+                </div>
+                <div className="1 flex items-center space-x-2 py-1">
+                  <img className='w-20 h-16' src={seller2} alt="seller1" />
+                  <div className="flex flex-col items-start">
+                    <h3 className='font-bold text-sm'>ARS Red Shoes</h3>
+                    <div className="flex">
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    
+                    </div>
+                    <p className='text-sm font-semibold'><span className='line-through text-gray-500'>$180.40</span> $150.10</p>
+                  </div>
+                </div>
+                <div className="1 flex items-center space-x-2 py-1">
+                  <img className='w-20 h-16' src={seller3} alt="seller1" />
+                  <div className="flex flex-col items-start">
+                    <h3 className='font-bold text-sm'>ARS Green Tshirt</h3>
+                    <div className="flex">
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    
+                    </div>
+                    <p className='text-sm font-semibold'><span className='line-through text-gray-500'>$40.00</span> $45.00</p>
+                  </div>
+                </div>
+                <div className="1 flex items-center space-x-2 py-1">
+                  <img className='w-20 h-16' src={seller4} alt="seller1" />
+                  <div className="flex flex-col items-start">
+                    <h3 className='font-bold test-sm'>ARS Yellow Shoes</h3>
+                    <div className="flex">
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    
+                    </div>
+                    <p className='text-sm font-semibold'><span className='line-through text-gray-500'>$190.00</span> $160.00</p>
+                  </div>
+                </div>
+                <div className="1 flex items-center space-x-2 py-1">
+                  <img className='w-20 h-16' src={seller5} alt="seller1" />
+                  <div className="flex flex-col items-start">
+                    <h3 className='font-bold test-sm'>ARS Yellow Shoes</h3>
+                    <div className="flex">
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    <span className="text-1xl text-yellow-500">&#9733;</span>
+                    
+                    </div>
+                    <p className='text-sm font-semibold'><span className='line-through text-gray-500'>$170.00</span> $200.00</p>
+                  </div>
+                </div>
+              </di>
+            </div>
+          </div>
+        <div className="bg-white mx-0 md:mx-12">
     <ol className="flex items-center whitespace-nowrap my-6 mx-4">
                 <li className="inline-flex items-center">
                   <Link className="flex items-center text-sm text-gray-500 hover:text-blue-600" to="/">
@@ -56,7 +151,7 @@ const JeweleryProducts = () => {
                 <h1 className='text-2xl md:text-5xl '>Jeweleries</h1>
                 <p className='text-sm line-clamp-3  md:text-md '>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit sed ut.</p>
               </div>
-      <div className="grid grid-cols-2 md:grid md:grid-cols-4 justify-items-center px-4 mt-6">
+      <div className="grid grid-cols-2 md:grid md:grid-cols-3 justify-items-center px-4 mt-6">
       {products.map((element) => (
         <div key={element.id}>
           <StoreItems 
@@ -69,7 +164,9 @@ const JeweleryProducts = () => {
         </div>
       ))}
     </div>
-    </>
+    </div>
+    </div>
+  </>
   )
 }
 
