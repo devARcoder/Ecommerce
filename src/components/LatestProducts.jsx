@@ -6,7 +6,7 @@ const LatestProducts = () => {
   return (
     <>
     <div className="grid grid-cols-1 md:grid md:grid-cols-3 gap-3 px-6 py-2 md:px-10">
-    <div 
+    <div
       className="relative bg-no-repeat bg-cover bg-right md:bg-cover md:bg-center text-white md:w-[23rem] md:h-[23rem] py-8 md:px-3 flex items-center justify-center md:justify-start md:items-center"
       style={{ backgroundImage: `url(${woman})`}}
     >

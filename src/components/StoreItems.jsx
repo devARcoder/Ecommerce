@@ -1,6 +1,7 @@
 import React from "react";
 
-const StoreItems = ({ image, title, desc, price, category}) => {
+// category
+const StoreItems = ({ image, title, desc, price}) => {
   return (
     <>
       <div className="px-3 py-3 flex flex-col justify-center items-start">
@@ -10,12 +11,12 @@ const StoreItems = ({ image, title, desc, price, category}) => {
           className="w-full h-36 md:h-48 object-cover object-center rounded-md"
         />
         <div className="flex flex-col space-y-2 mt-2">
-          <div className="realtive">
+          {/* <div className="realtive">
           <h1 className="text-xl font-bold font-serif">{title} </h1>
           <span className="absolute text-center -mt-10 ml-24 rotate-12 sm:-mt-6 sm:ml-44 sm:rotate-0 md:-mt-6 md:ml-40 md:rotate-0 text-[7px] font-semibold font-serif bg-green-500 text-white px-1 py-1 rounded-full">
             {category}
           </span>
-          </div>
+          </div> */}
           {/* Fix: Handle missing category */}
           <p className="text-gray-700 line-clamp-2 text-lg font-serif">
             {desc}

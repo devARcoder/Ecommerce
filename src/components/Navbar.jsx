@@ -41,7 +41,7 @@ const Navbar = () => {
             <Link to="/" className="relative">
               <i className="fa fa-shopping-bag text-xl"></i>
               <span className="absolute -top-2 -right-2 text-[10px] rounded-full bg-white text-black px-1.5 py-0">
-                7
+                9
               </span>
             </Link>
           </div>

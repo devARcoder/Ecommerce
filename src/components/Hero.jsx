@@ -20,8 +20,8 @@ const Hero = () => {
         <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold font-serif">Raining Offers For Hot Summer!</h1>
         <p className="text-lg sm:text-xl font-semibold">25% Off On All Products</p>
         <div className="btns flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-4 font-semibold w-full px-2">
-          <button className="bg-white text-black py-2 px-5 sm:py-3 md:py-0 hover:bg-black hover:text-white w-full md:w-auto">SHOP NOW</button>
-          <button className="bg-none text-white border border-white py-2 sm:py-3 md:py-2 px-4 hover:bg-white hover:text-black w-full md:w-auto">FIND MORE</button>
+          <button className="bg-white text-black py-2 px-5 sm:py-3 md:py-0 hover:bg-black hover:text-white w-full md:w-auto transform transition-all duration-300 ease-in-out"><span className="transform transition-all duration-300 ease-in-out">SHOP NOW</span></button>
+          <button className="bg-none text-white border border-white py-2 sm:py-3 md:py-2 px-4 hover:bg-white hover:text-black w-full md:w-auto transform transition-all duration-300 ease-in-out"><span className="transform transition-all duration-300 ease-in-out">FIND MORE</span></button>
         </div>
       </div>
     </div>

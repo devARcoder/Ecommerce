@@ -10,6 +10,8 @@ import ElectronicProducts from './components/ElectronicProducts';
 import JeweleryProducts from './components/JeweleryProducts';
 import OfferAllBrands from './components/OfferAllBrands';
 import Footer from './components/Footer';
+import About from './components/About';
+import Contact from './components/Contact';
 // import Cart from "./components/Cart";
 
 // const sampleProducts = [
@@ -25,13 +27,14 @@ const App = () => {
         <Navbar />
         
         <Routes>
-          
           <Route exact path="/" element={<Hero />} />
           <Route exact path="/everything" element={<AllProducts  />} />
           <Route exact path="/men" element={<MenCloths  />} />
           <Route exact path="/women" element={<WomenCloths  />} />
           <Route exact path="/electronics" element={<ElectronicProducts  />} />
           <Route exact path="/jewelery" element={<JeweleryProducts  />} />
+          <Route exact path="/about" element={<About/>} />
+          <Route exact path="/contact" element={<Contact/>} />
         </Routes>
         <OfferAllBrands/>
         <Footer/>

@@ -30,6 +30,7 @@ const WomenCloths = () => {
       
         fetchClothingProducts();
       }, []);
+      
   return (
     <>
     <div className="bg-gray-100 py-0 px-0 flex flex-col justify-between md:py-24 md:px-10 md:flex md:flex-row md:justify-between">
